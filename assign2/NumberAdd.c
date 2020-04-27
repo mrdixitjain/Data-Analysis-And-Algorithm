@@ -1,0 +1,37 @@
+int addition(int a[], int c[], int e[], int n2, int n1,int b1)
+{
+    int i=0,j=0,carry=0;
+    if(n1>n2)
+    {
+    	i=n1+n2;
+    	n2=n1;
+    	n1=i-n2;
+    }
+	while(n2-j>0)
+    {
+        e[j]=a[i]+c[n2-1-j]+carry;
+		if(e[j]>=b1)
+		{
+	    	e[j]=e[j]%b1;
+	    	carry=1;
+		}
+		else
+	    	carry=0;
+		j++;
+		i++;
+    }
+    while(i<=n1)
+    {
+	e[j]=a[i]+carry;
+	if(e[j]>=b1)
+	{
+	    e[j]=e[j]%b1;
+	    carry=1;
+	}
+	else
+	    carry=0;
+	j++;
+	i++;
+    }
+    print(e,j-1);
+}
